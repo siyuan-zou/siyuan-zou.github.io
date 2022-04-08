@@ -3,11 +3,11 @@
   <title>Siyuan&#39;s Website!</title>
   
   
-  <link href="https://siyuan-zou.github.io/siyuan-zou.github.io/atom.xml" rel="self"/>
+  <link href="https://siyuan-zou.github.io/atom.xml" rel="self"/>
   
-  <link href="https://siyuan-zou.github.io/siyuan-zou.github.io/"/>
+  <link href="https://siyuan-zou.github.io/"/>
   <updated>2022-03-24T14:33:13.467Z</updated>
-  <id>https://siyuan-zou.github.io/siyuan-zou.github.io/</id>
+  <id>https://siyuan-zou.github.io/</id>
   
   <author>
     <name>Zou Siyuan</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>毕业</title>
-    <link href="https://siyuan-zou.github.io/siyuan-zou.github.io/2022/03/23/%E6%AF%95%E4%B8%9A/"/>
-    <id>https://siyuan-zou.github.io/siyuan-zou.github.io/2022/03/23/%E6%AF%95%E4%B8%9A/</id>
+    <link href="https://siyuan-zou.github.io/2022/03/23/%E6%AF%95%E4%B8%9A/"/>
+    <id>https://siyuan-zou.github.io/2022/03/23/%E6%AF%95%E4%B8%9A/</id>
     <published>2022-03-23T02:23:51.000Z</published>
     <updated>2022-03-24T14:33:13.467Z</updated>
     
@@ -33,15 +33,15 @@
     
     
     
-    <category term="“literary notes”" scheme="https://siyuan-zou.github.io/siyuan-zou.github.io/categories/%E2%80%9Cliterary-notes%E2%80%9D/"/>
+    <category term="“literary notes”" scheme="https://siyuan-zou.github.io/categories/%E2%80%9Cliterary-notes%E2%80%9D/"/>
     
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://siyuan-zou.github.io/siyuan-zou.github.io/2022/03/22/hello-world/"/>
-    <id>https://siyuan-zou.github.io/siyuan-zou.github.io/2022/03/22/hello-world/</id>
+    <link href="https://siyuan-zou.github.io/2022/03/22/hello-world/"/>
+    <id>https://siyuan-zou.github.io/2022/03/22/hello-world/</id>
     <published>2022-03-22T06:40:34.852Z</published>
     <updated>2022-03-22T06:40:34.852Z</updated>
     
