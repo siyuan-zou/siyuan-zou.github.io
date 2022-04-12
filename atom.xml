@@ -3,11 +3,11 @@
   <title>Hexo</title>
   
   
-  <link href="https://siyuan-zou.github.io/siyuan-zou.github.io/atom.xml" rel="self"/>
+  <link href="https://siyuan-zou.github.io/atom.xml" rel="self"/>
   
-  <link href="https://siyuan-zou.github.io/siyuan-zou.github.io/"/>
+  <link href="https://siyuan-zou.github.io/"/>
   <updated>2022-04-12T02:22:04.368Z</updated>
-  <id>https://siyuan-zou.github.io/siyuan-zou.github.io/</id>
+  <id>https://siyuan-zou.github.io/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://siyuan-zou.github.io/siyuan-zou.github.io/2022/04/12/hello-world/"/>
-    <id>https://siyuan-zou.github.io/siyuan-zou.github.io/2022/04/12/hello-world/</id>
+    <link href="https://siyuan-zou.github.io/2022/04/12/hello-world/"/>
+    <id>https://siyuan-zou.github.io/2022/04/12/hello-world/</id>
     <published>2022-04-12T02:22:04.367Z</published>
     <updated>2022-04-12T02:22:04.368Z</updated>
     
