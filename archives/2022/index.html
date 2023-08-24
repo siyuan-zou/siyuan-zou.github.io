@@ -65,6 +65,85 @@
     
 
     
+        <article class="box post post-item">
+            <div class="post-title"><a href="/2022/04/17/mission1/">2022年4月17日 上海</a></div>
+            <div class="post-meta">
+                
+                <i class="fa fa-calendar"></i> <time>2022-04-17</time>
+                <span class="dotted">|</span>
+                <i class="fa fa-user"></i> 
+            </div>
+
+            <div class="post-excerpt">
+                <a href="/2022/04/17/mission1/">
+                    <p>
+                        
+                            12345678# 1. 导入需要用到的相关库# 导入 pandas 库，用于数据处理和分析import pandas as pd# 导入 numpy 库，用于科学计算和多维数组操作import numpy as np# 从 sklearn.tree 模块中导入 DecisionTreeClassifier 类# DecisionTreeClassifier 用于构建决策树分类模型from sklearn.tree import DecisionTreeClassifier
+
+
+12345# 2. 读取训练集和测试集# 使用 read_csv() 函数从文件中读取训练集数据，文件名为 &#x27;train.csv&#x27;train_data = pd.read_csv(&#x27;用户新增预测挑战赛公开数据/train.csv&#x27;)# 使用 read_csv() 函数从文件中读取测试集数据，文件名为 &#x27;test.csv&#x27;test_data = pd.read_csv(&#x27;用户新增预测挑战赛公开数据/test.csv&#x27;)
+
+
+12345678910111213141516171819202122# 3. 将 &#x27;udmap&#x27; 列进行 One-Hot 编码 # 数据样例：#                    udmap  key1  key2  key3  key4  key5  key6  key7  key8  key9# 0           &#123;&#x27;key1&#x27;: 2&#125;     2     0     0     0     0     0     0     0     0# 1           &#123;&#x27;key2&#x27;: 1&#125;     0     1     0     0     0     0     0     0     0# 2  &#123;&#x27;key1&#x27;: 3, &#x27;key2&#x27;: 2&#125;   3     2     0     0     0     0     0     0     0# 在 python 中, 形如 &#123;&#x27;key1&#x27;: 3, &#x27;key2&#x27;: 2&#125; 格式的为字典类型对象, 通过key-value键值对的方式存储# 而在本数据集中, udmap实际是以字符的形式存储, 所以处理时需要先用eval 函数将&#x27;udmap&#x27; 解析为字典# 具体实现代码：# 定义函数 udmap_onethot，用于将 &#x27;udmap&#x27; 列进行 One-Hot 编码def udmap_onethot(d):    v = np.zeros(9)  # 创建一个长度为 9 的零数组    if d == &#x27;unknown&#x27;:  # 如果 &#x27;udmap&#x27; 的值是 &#x27;unknown&#x27;        return v  # 返回零数组    d = eval(d)  # 将 &#x27;udmap&#x27; 的值解析为一个字典    for i in range(1, 10):  # 遍历 &#x27;key1&#x27; 到 &#x27;key9&#x27;, 注意, 这里不包括10本身        if &#x27;key&#x27; + str(i) in d:  # 如果当前键存在于字典中            v[i-1] = d[&#x27;key&#x27; + str(i)]  # 将字典中的值存储在对应的索引位置上                return v  # 返回 One-Hot 编码后的数组
+
+
+12345678910# 使用 apply() 方法将 udmap_onethot 函数应用于每个样本的 &#x27;udmap&#x27; 列# np.vstack() 用于将结果堆叠成一个数组train_udmap_df = pd.DataFrame(np.vstack(train_data[&#x27;udmap&#x27;].apply(udmap_onethot)))test_udmap_df = pd.DataFrame(np.vstack(test_data[&#x27;udmap&#x27;].apply(udmap_onethot)))# 为新的特征 DataFrame 命名列名train_udmap_df.columns = [&#x27;key&#x27; + str(i) for i in range(1, 10)]test_udmap_df.columns = [&#x27;key&#x27; + str(i) for i in range(1, 10)]# 将编码后的 udmap 特征与原始数据进行拼接，沿着列方向拼接train_data = pd.concat([train_data, train_udmap_df], axis=1)test_data = pd.concat([test_data, test_udmap_df], axis=1)
+
+
+12345# 4. 编码 udmap 是否为空# 使用比较运算符将每个样本的 &#x27;udmap&#x27; 列与字符串 &#x27;unknown&#x27; 进行比较，返回一个布尔值的 Series# 使用 astype(int) 将布尔值转换为整数（0 或 1），以便进行后续的数值计算和分析train_data[&#x27;udmap_isunknown&#x27;] = (train_data[&#x27;udmap&#x27;] == &#x27;unknown&#x27;).astype(int)test_data[&#x27;udmap_isunknown&#x27;] = (test_data[&#x27;udmap&#x27;] == &#x27;unknown&#x27;).astype(int)
+
+
+12345# 5. 提取 eid 的频次特征# 使用 map() 方法将每个样本的 eid 映射到训练数据中 eid 的频次计数# train_data[&#x27;eid&#x27;].value_counts() 返回每个 eid 出现的频次计数train_data[&#x27;eid_freq&#x27;] = train_data[&#x27;eid&#x27;].map(train_data[&#x27;eid&#x27;].value_counts())test_data[&#x27;eid_freq&#x27;] = test_data[&#x27;eid&#x27;].map(train_data[&#x27;eid&#x27;].value_counts())
+
+
+12345# 6. 提取 eid 的标签特征# 使用 groupby() 方法按照 eid 进行分组，然后计算每个 eid 分组的目标值均值# train_data.groupby(&#x27;eid&#x27;)[&#x27;target&#x27;].mean() 返回每个 eid 分组的目标值均值train_data[&#x27;eid_mean&#x27;] = train_data[&#x27;eid&#x27;].map(train_data.groupby(&#x27;eid&#x27;)[&#x27;target&#x27;].mean())test_data[&#x27;eid_mean&#x27;] = test_data[&#x27;eid&#x27;].map(train_data.groupby(&#x27;eid&#x27;)[&#x27;target&#x27;].mean())
+
+
+1234567# 7. 提取时间戳# 使用 pd.to_datetime() 函数将时间戳列转换为 datetime 类型# 样例：1678932546000-&gt;2023-03-15 15:14:16# 注: 需要注意时间戳的长度, 如果是13位则unit 为 毫秒, 如果是10位则为 秒, 这是转时间戳时容易踩的坑# 具体实现代码：train_data[&#x27;common_ts&#x27;] = pd.to_datetime(train_data[&#x27;common_ts&#x27;], unit=&#x27;ms&#x27;)test_data[&#x27;common_ts&#x27;] = pd.to_datetime(test_data[&#x27;common_ts&#x27;], unit=&#x27;ms&#x27;)
+
+
+123# 使用 dt.hour 属性从 datetime 列中提取小时信息，并将提取的小时信息存储在新的列 &#x27;common_ts_hour&#x27;train_data[&#x27;common_ts_hour&#x27;] = train_data[&#x27;common_ts&#x27;].dt.hourtest_data[&#x27;common_ts_hour&#x27;] = test_data[&#x27;common_ts&#x27;].dt.hour
+
+
+12345678910# 8. 加载决策树模型进行训练(直接使用sklearn中导入的包进行模型建立)clf = DecisionTreeClassifier()# 使用 fit 方法训练模型# train_data.drop([&#x27;udmap&#x27;, &#x27;common_ts&#x27;, &#x27;uuid&#x27;, &#x27;target&#x27;], axis=1) 从训练数据集中移除列 &#x27;udmap&#x27;, &#x27;common_ts&#x27;, &#x27;uuid&#x27;, &#x27;target&#x27;# 这些列可能是特征或标签，取决于数据集的设置# train_data[&#x27;target&#x27;] 是训练数据集中的标签列，它包含了每个样本的目标值clf.fit(    train_data.drop([&#x27;udmap&#x27;, &#x27;common_ts&#x27;, &#x27;uuid&#x27;, &#x27;target&#x27;], axis=1),  # 特征数据：移除指定的列作为特征    train_data[&#x27;target&#x27;]  # 目标数据：将 &#x27;target&#x27; 列作为模型的目标进行训练)
+
+
+
+
+#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}DecisionTreeClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.DecisionTreeClassifierDecisionTreeClassifier()
+
+
+
+
+1234567# 9. 对测试集进行预测，并保存结果到result_df中# 创建一个DataFrame来存储预测结果，其中包括两列：&#x27;uuid&#x27; 和 &#x27;target&#x27;# &#x27;uuid&#x27; 列来自测试数据集中的 &#x27;uuid&#x27; 列，&#x27;target&#x27; 列将用来存储模型的预测结果result_df = pd.DataFrame(&#123;    &#x27;uuid&#x27;: test_data[&#x27;uuid&#x27;],  # 使用测试数据集中的 &#x27;uuid&#x27; 列作为 &#x27;uuid&#x27; 列的值    &#x27;target&#x27;: clf.predict(test_data.drop([&#x27;udmap&#x27;, &#x27;common_ts&#x27;, &#x27;uuid&#x27;], axis=1))  # 使用模型 clf 对测试数据集进行预测，并将预测结果存储在 &#x27;target&#x27; 列中&#125;)
+
+
+1234# 10. 保存结果文件到本地# 将结果DataFrame保存为一个CSV文件，文件名为 &#x27;submit.csv&#x27;# 参数 index=None 表示不将DataFrame的索引写入文件中result_df.to_csv(&#x27;submit.csv&#x27;, index=None)
+
+
+1
+
+                        
+                    </p>
+                </a>
+            </div>
+
+            
+                <div class="post-footer">
+                    
+                        <i class="fa fa-folder-open-o"></i>
+                        <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+
+                        
+
+                    
+                    
+                </div>
+            
+        </article>
+    
+
+    
 
 
 
@@ -91,6 +170,10 @@
             
         
             
+                <li><a href="/2022/04/17/mission1/">2022年4月17日 上海</a></li>
+            
+        
+            
         
     </ul>
 </div>
@@ -99,14 +182,14 @@
         
     <div class="box widget">
         <div class="title">Categories</div>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%84%9F/">随感</a><span class="category-list-count">3</span></li></ul>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%84%9F/">随感</a><span class="category-list-count">3</span></li></ul>
     </div>
 
     
         
   <div class="box widget">
     <div class="title">Archives</div>
-    <ul class="archive-list"></ul>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022-04</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
     
