@@ -1,219 +1,441 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+
+    <link rel="dns-prefetch" //cdn.jsdelivr.net>
 
 
 
-
-    <meta name="keywords" content=""/>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css">
 
 
-    <meta name="description" content=""/>
+
+    
+<link rel="stylesheet" href="/css/prism-m.css">
+
+    
 
 
-<meta name="Robots" content="all">
+
+<meta name="theme-color" content="#3F51B5">
 
 
-    <title>Siyuan&#39;s website!</title>
+<style>
+    html,body{scroll-behavior:smooth;min-height:100vh}
+    blockquote>strong>a{word-break:break-all}
+    .mdui-hoverable:hover,.mdui-hoverable:focus{-webkit-box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;}
+    .mdui-card-primary-title a{text-decoration:none !important}
+    .page-number{display:none !important}
+    .mdui-container-fluid{transition:opacity .4s}
+    
+        body{background-color: #f6f6f6}
 
-
-<link rel="icon" href="/images/favicon.ico">
-
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-
-
-<link rel="stylesheet" href="/css/atom-one-dark.css">
-
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-<script src="/js/highlight.min.js"></script>
-
+    
+</style>
+    
+    <title>Archives | Siyuan&#39;s website!</title>
+    <link rel="canonical" href="https://siyuan-zou.github.io/archives/">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Siyuan&#39;s website!">
+<meta property="og:url" content="https://siyuan-zou.github.io/archives/index.html">
+<meta property="og:site_name" content="Siyuan&#39;s website!">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Siyuan">
+<meta name="twitter:card" content="summary">
 <meta name="generator" content="Hexo 6.3.0"></head>
-<body>
-    <div class="main-container">
-        <header class="header">
-    <div class="global-width">
-        <nav class="nav-box">
-            
-                <a class="nav-item" href="/"
-                
-                >Home</a>
-            
-                <a class="nav-item" href="/resume"
-                
-                >Resume</a>
-            
-                <a class="nav-item" href="/about"
-                
-                >About</a>
-            
-        </nav>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
+    <div class="mdui-theme-layout-light">
+    <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
+    <div class="mdui-toolbar">
+        <button mdui-drawer="{target: '.mdui-drawer'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></button>
+        <a href="/" class="mdui-typo-title">Siyuan&#39;s website!</a>
+        <div class="mdui-toolbar-spacer"></div>
+        
+        <a href="/search/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">search</i></a>
+        
     </div>
 </header>
-
-        <section class="content global-width">
-            <div class="main">
+    <aside class="mdui-drawer mdui-drawer-close">
+    <nav class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="/about/"  class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-avatar">
                 
-    
-
-    
-
-    
-        <article class="box post post-item">
-            <div class="post-title"><a href="/2022/04/17/mission1/">2022年4月17日 上海</a></div>
-            <div class="post-meta">
+                <i class="mdui-color-theme-primary mdui-icon material-icons">person</i>
                 
-                <i class="fa fa-calendar"></i> <time>2022-04-17</time>
-                <span class="dotted">|</span>
-                <i class="fa fa-user"></i> 
             </div>
-
-            <div class="post-excerpt">
-                <a href="/2022/04/17/mission1/">
-                    <p>
-                        
-                            12345678# 1. 导入需要用到的相关库# 导入 pandas 库，用于数据处理和分析import pandas as pd# 导入 numpy 库，用于科学计算和多维数组操作import numpy as np# 从 sklearn.tree 模块中导入 DecisionTreeClassifier 类# DecisionTreeClassifier 用于构建决策树分类模型from sklearn.tree import DecisionTreeClassifier
-
-
-12345# 2. 读取训练集和测试集# 使用 read_csv() 函数从文件中读取训练集数据，文件名为 &#x27;train.csv&#x27;train_data = pd.read_csv(&#x27;用户新增预测挑战赛公开数据/train.csv&#x27;)# 使用 read_csv() 函数从文件中读取测试集数据，文件名为 &#x27;test.csv&#x27;test_data = pd.read_csv(&#x27;用户新增预测挑战赛公开数据/test.csv&#x27;)
-
-
-12345678910111213141516171819202122# 3. 将 &#x27;udmap&#x27; 列进行 One-Hot 编码 # 数据样例：#                    udmap  key1  key2  key3  key4  key5  key6  key7  key8  key9# 0           &#123;&#x27;key1&#x27;: 2&#125;     2     0     0     0     0     0     0     0     0# 1           &#123;&#x27;key2&#x27;: 1&#125;     0     1     0     0     0     0     0     0     0# 2  &#123;&#x27;key1&#x27;: 3, &#x27;key2&#x27;: 2&#125;   3     2     0     0     0     0     0     0     0# 在 python 中, 形如 &#123;&#x27;key1&#x27;: 3, &#x27;key2&#x27;: 2&#125; 格式的为字典类型对象, 通过key-value键值对的方式存储# 而在本数据集中, udmap实际是以字符的形式存储, 所以处理时需要先用eval 函数将&#x27;udmap&#x27; 解析为字典# 具体实现代码：# 定义函数 udmap_onethot，用于将 &#x27;udmap&#x27; 列进行 One-Hot 编码def udmap_onethot(d):    v = np.zeros(9)  # 创建一个长度为 9 的零数组    if d == &#x27;unknown&#x27;:  # 如果 &#x27;udmap&#x27; 的值是 &#x27;unknown&#x27;        return v  # 返回零数组    d = eval(d)  # 将 &#x27;udmap&#x27; 的值解析为一个字典    for i in range(1, 10):  # 遍历 &#x27;key1&#x27; 到 &#x27;key9&#x27;, 注意, 这里不包括10本身        if &#x27;key&#x27; + str(i) in d:  # 如果当前键存在于字典中            v[i-1] = d[&#x27;key&#x27; + str(i)]  # 将字典中的值存储在对应的索引位置上                return v  # 返回 One-Hot 编码后的数组
-
-
-12345678910# 使用 apply() 方法将 udmap_onethot 函数应用于每个样本的 &#x27;udmap&#x27; 列# np.vstack() 用于将结果堆叠成一个数组train_udmap_df = pd.DataFrame(np.vstack(train_data[&#x27;udmap&#x27;].apply(udmap_onethot)))test_udmap_df = pd.DataFrame(np.vstack(test_data[&#x27;udmap&#x27;].apply(udmap_onethot)))# 为新的特征 DataFrame 命名列名train_udmap_df.columns = [&#x27;key&#x27; + str(i) for i in range(1, 10)]test_udmap_df.columns = [&#x27;key&#x27; + str(i) for i in range(1, 10)]# 将编码后的 udmap 特征与原始数据进行拼接，沿着列方向拼接train_data = pd.concat([train_data, train_udmap_df], axis=1)test_data = pd.concat([test_data, test_udmap_df], axis=1)
-
-
-12345# 4. 编码 udmap 是否为空# 使用比较运算符将每个样本的 &#x27;udmap&#x27; 列与字符串 &#x27;unknown&#x27; 进行比较，返回一个布尔值的 Series# 使用 astype(int) 将布尔值转换为整数（0 或 1），以便进行后续的数值计算和分析train_data[&#x27;udmap_isunknown&#x27;] = (train_data[&#x27;udmap&#x27;] == &#x27;unknown&#x27;).astype(int)test_data[&#x27;udmap_isunknown&#x27;] = (test_data[&#x27;udmap&#x27;] == &#x27;unknown&#x27;).astype(int)
-
-
-12345# 5. 提取 eid 的频次特征# 使用 map() 方法将每个样本的 eid 映射到训练数据中 eid 的频次计数# train_data[&#x27;eid&#x27;].value_counts() 返回每个 eid 出现的频次计数train_data[&#x27;eid_freq&#x27;] = train_data[&#x27;eid&#x27;].map(train_data[&#x27;eid&#x27;].value_counts())test_data[&#x27;eid_freq&#x27;] = test_data[&#x27;eid&#x27;].map(train_data[&#x27;eid&#x27;].value_counts())
-
-
-12345# 6. 提取 eid 的标签特征# 使用 groupby() 方法按照 eid 进行分组，然后计算每个 eid 分组的目标值均值# train_data.groupby(&#x27;eid&#x27;)[&#x27;target&#x27;].mean() 返回每个 eid 分组的目标值均值train_data[&#x27;eid_mean&#x27;] = train_data[&#x27;eid&#x27;].map(train_data.groupby(&#x27;eid&#x27;)[&#x27;target&#x27;].mean())test_data[&#x27;eid_mean&#x27;] = test_data[&#x27;eid&#x27;].map(train_data.groupby(&#x27;eid&#x27;)[&#x27;target&#x27;].mean())
-
-
-1234567# 7. 提取时间戳# 使用 pd.to_datetime() 函数将时间戳列转换为 datetime 类型# 样例：1678932546000-&gt;2023-03-15 15:14:16# 注: 需要注意时间戳的长度, 如果是13位则unit 为 毫秒, 如果是10位则为 秒, 这是转时间戳时容易踩的坑# 具体实现代码：train_data[&#x27;common_ts&#x27;] = pd.to_datetime(train_data[&#x27;common_ts&#x27;], unit=&#x27;ms&#x27;)test_data[&#x27;common_ts&#x27;] = pd.to_datetime(test_data[&#x27;common_ts&#x27;], unit=&#x27;ms&#x27;)
-
-
-123# 使用 dt.hour 属性从 datetime 列中提取小时信息，并将提取的小时信息存储在新的列 &#x27;common_ts_hour&#x27;train_data[&#x27;common_ts_hour&#x27;] = train_data[&#x27;common_ts&#x27;].dt.hourtest_data[&#x27;common_ts_hour&#x27;] = test_data[&#x27;common_ts&#x27;].dt.hour
-
-
-12345678910# 8. 加载决策树模型进行训练(直接使用sklearn中导入的包进行模型建立)clf = DecisionTreeClassifier()# 使用 fit 方法训练模型# train_data.drop([&#x27;udmap&#x27;, &#x27;common_ts&#x27;, &#x27;uuid&#x27;, &#x27;target&#x27;], axis=1) 从训练数据集中移除列 &#x27;udmap&#x27;, &#x27;common_ts&#x27;, &#x27;uuid&#x27;, &#x27;target&#x27;# 这些列可能是特征或标签，取决于数据集的设置# train_data[&#x27;target&#x27;] 是训练数据集中的标签列，它包含了每个样本的目标值clf.fit(    train_data.drop([&#x27;udmap&#x27;, &#x27;common_ts&#x27;, &#x27;uuid&#x27;, &#x27;target&#x27;], axis=1),  # 特征数据：移除指定的列作为特征    train_data[&#x27;target&#x27;]  # 目标数据：将 &#x27;target&#x27; 列作为模型的目标进行训练)
-
-
-
-
-#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}DecisionTreeClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.DecisionTreeClassifierDecisionTreeClassifier()
-
-
-
-
-1234567# 9. 对测试集进行预测，并保存结果到result_df中# 创建一个DataFrame来存储预测结果，其中包括两列：&#x27;uuid&#x27; 和 &#x27;target&#x27;# &#x27;uuid&#x27; 列来自测试数据集中的 &#x27;uuid&#x27; 列，&#x27;target&#x27; 列将用来存储模型的预测结果result_df = pd.DataFrame(&#123;    &#x27;uuid&#x27;: test_data[&#x27;uuid&#x27;],  # 使用测试数据集中的 &#x27;uuid&#x27; 列作为 &#x27;uuid&#x27; 列的值    &#x27;target&#x27;: clf.predict(test_data.drop([&#x27;udmap&#x27;, &#x27;common_ts&#x27;, &#x27;uuid&#x27;], axis=1))  # 使用模型 clf 对测试数据集进行预测，并将预测结果存储在 &#x27;target&#x27; 列中&#125;)
-
-
-1234# 10. 保存结果文件到本地# 将结果DataFrame保存为一个CSV文件，文件名为 &#x27;submit.csv&#x27;# 参数 index=None 表示不将DataFrame的索引写入文件中result_df.to_csv(&#x27;submit.csv&#x27;, index=None)
-
-
-1
-
-                        
-                    </p>
-                </a>
+            <div class="mdui-list-item-content">Siyuan</div>
+        </a>
+        <div class="mdui-divider"></div>
+        
+        <a href="/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content">Home</div>
+        </a>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">inbox</i>
+                <div class="mdui-list-item-content">Archives</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
             </div>
-
-            
-                <div class="post-footer">
-                    
-                        <i class="fa fa-folder-open-o"></i>
-                        <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-
-                        
-
-                    
-                    
-                </div>
-            
-        </article>
-    
-
-    
-
-
-
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/archives/2023/08/">August 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/archives/2022/04/">April 2022</a><a class="mdui-list-item mdui-ripple m-link" href="/archives/2022/03/">March 2022</a>
             </div>
-            <div class="aside">
-    
-        <div class="box widget">
-    <div class="introduction">
-        <p><img src="/images/avatar.jpg" alt="head-sculpture" /></p>
-        <p class="name">
-            卤肉饭
-        </p>
-        <p class="slogan">其书非世教 其人必贤哲</p>
-    </div>
-</div>
-    
-        
-<div class="box widget">
-    <div class="title">Recent</div>
-    <ul class="item-box">
-        
-            
-        
-            
-        
-            
-                <li><a href="/2022/04/17/mission1/">2022年4月17日 上海</a></li>
-            
-        
-            
-        
-    </ul>
-</div>
-
-    
-        
-    <div class="box widget">
-        <div class="title">Categories</div>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%84%9F/">随感</a><span class="category-list-count">3</span></li></ul>
-    </div>
-
-    
-        
-  <div class="box widget">
-    <div class="title">Archives</div>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022-04</a><span class="archive-list-count">1</span></li></ul>
-  </div>
-
-    
-        
-    
-</div>
-        </section>
-        <footer class="footer">
-    <div class="global-width footer-box">
-        <div class="copyright">
-            <span>Copyright &copy; 2019</span>
-            <span class="dotted">|</span>
-            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span>
-            <span class="dotted">|</span>
-            <span>Theme by <a href="javascript:">Loren</a></span>
-            <span class="dotted">|</span>
-            <span><a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">浙ICP备18016660号-1</a></span>
         </div>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
+                <div class="mdui-list-item-content">Categories</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="mdui-list-item mdui-ripple m-link" href="/categories/%E9%9A%8F%E6%84%9F/">随感</a>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="mdui-divider"></div>
+    <footer class="mdui-m-l-2 mdui-m-t-1 mdui-typo mdui-text-color-theme-disabled">
+        <p class="mdui-m-b-0">
+            
+            ©
+            2023 Siyuan<br>
+            
+            Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a><br>
+            
+            Theme - <a href="https://github.com/kwaa/hexo-theme-m" rel="noreferrer" target="_blank"
+                mdui-tooltip="{position:'right', content: 'by 藍+85CD'}">M</a></p>
+            
+    </footer>
+</aside>
     </div>
-</footer>
+    <div class="mdui-container-fluid mdui-center" style="max-width:720px">
+        <div class="mdui-theme-layout-light mdui-color-transparent">
+
+    <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" href="/2023/08/24/%E7%94%A8%E6%88%B7%E6%96%B0%E5%A2%9E%E9%A2%84%E6%B5%8B%E6%8C%91%E6%88%98%E8%B5%9B/">用户新增预测挑战赛</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></small>
+        
     </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'Created: 2023-08-24 12:00<br>Updated: 2023-08-24 10:20'}">2023-08-24 -</span>
+        
+            <span>2023/08/24/用户新增预测挑战赛/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <h1 id="1-任务背景"><a href="#1-任务背景" class="headerlink" title="1. 任务背景"></a>1. 任务背景</h1><p>为讯飞开放平台挑战赛的<a target="_blank" rel="noopener" href="https://challenge.xfyun.cn/topic/info?type=subscriber-addition-prediction&ch=ymfk4uU">用户新增预测挑战赛</a>提供的应用数据作为训练样本，基于提供的样本构建模型，预测用户的新增情况。</p>
+<p>讯飞同时提供夏令营供学习，在此记录学习笔记。</p>
+<h3 id="1-1-数据说明"><a href="#1-1-数据说明" class="headerlink" title="1.1 数据说明"></a>1.1 数据说明</h3><p>赛题数据由约62万条训练集、20万条测试集数据组成，共包含13个字段。其中uuid为样本唯一标识，eid为访问行为ID，udmap为行为属性，其中的key1到key9表示不同的行为属性，如项目名、项目id等相关字段，common_ts为应用访问记录发生时间（毫秒时间戳），其余字段x1至x8为用户相关的属性，为匿名处理字段。target字段为预测目标，即是否为新增用户。</p>
+<h3 id="1-2-评估指标"><a href="#1-2-评估指标" class="headerlink" title="1.2 评估指标"></a>1.2 评估指标</h3><p>本次竞赛的评价标准采用f1_score，分数越高，效果越好。<br>f1_score 为二分类问题的一种常用评价标准，同时兼顾了分类模型的精确率(precision)和召回率(recall)。F1分数是模型精确率和召回率的一种调和平均，它的最大值是1，最小值是0。</p>
+<ul>
+<li>精确率(precision): 预测为True的样本中，多少个真的为True</li>
+<li>召回率(recall): 为True的样本中，多少个被预测为True</li>
+</ul>
+<p>如下图：（待加入）</p>
+<p>我们希望两个圆圈尽量重合，即精确率和召回率都尽量高，因此采用f1_score评价二分类问题。</p>
+<h1 id="2-1-任务一：一键跑通baseline"><a href="#2-1-任务一：一键跑通baseline" class="headerlink" title="2.1 任务一：一键跑通baseline"></a>2.1 任务一：一键跑通baseline</h1><p>代码如下：</p>
+<ol>
+<li>导入需要用到的相关库：</li>
+</ol>
+<ul>
+<li>导入 pandas 库，用于数据处理和分析</li>
+<li>导入 numpy 库，用于科学计算和多维数组操作</li>
+<li>从sklearn.tree模块中导入DecisionTreeClassifier，用于构建决策树分类模型</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>tree <span class="token keyword">import</span> DecisionTreeClassifier<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>用pd读取训练集和测试集，转换成DataFrame格式</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 使用 read_csv() 函数从文件中读取训练集数据，文件名为 'train.csv'</span>
+train_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'用户新增预测挑战赛公开数据/train.csv'</span><span class="token punctuation">)</span>
+<span class="token comment"># 使用 read_csv() 函数从文件中读取测试集数据，文件名为 'test.csv'</span>
+test_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'用户新增预测挑战赛公开数据/test.csv'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>将 ‘udmap’ 列进行 One-Hot 编码，这种编码主要是对没有序关系的不同特征进行数学编码，由于不同特征之间不能比较、属于不同维度，因而有n个特征就采用n维向量编码，每个特征独享1个纬度。采用这样的编码的好处是避免机器按照数字大小比较不同特征：例如，将女性编译为1而男性编译为0，机器在处理时可能会默认女性特征比男性特征更重要。</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+<span class="token comment"># 数据样例：</span>
+<span class="token comment">#                    udmap  key1  key2  key3  key4  key5  key6  key7  key8  key9</span>
+<span class="token comment"># 0           &#123;'key1': 2&#125;     2     0     0     0     0     0     0     0     0</span>
+<span class="token comment"># 1           &#123;'key2': 1&#125;     0     1     0     0     0     0     0     0     0</span>
+<span class="token comment"># 2  &#123;'key1': 3, 'key2': 2&#125;   3     2     0     0     0     0     0     0     0</span>
+
+<span class="token comment"># 在 python 中, 形如 &#123;'key1': 3, 'key2': 2&#125; 格式的为字典类型对象, 通过key-value键值对的方式存储</span>
+<span class="token comment"># 而在本数据集中, udmap实际是以字符的形式存储, 所以处理时需要先用eval 函数将'udmap' 解析为字典</span>
+
+<span class="token comment"># 具体实现代码：</span>
+<span class="token comment"># 定义函数 udmap_onethot，用于将 'udmap' 列进行 One-Hot 编码</span>
+<span class="token keyword">def</span> <span class="token function">udmap_onethot</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    v <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>  <span class="token comment"># 创建一个长度为 9 的零数组</span>
+    <span class="token keyword">if</span> d <span class="token operator">==</span> <span class="token string">'unknown'</span><span class="token punctuation">:</span>  <span class="token comment"># 如果 'udmap' 的值是 'unknown'</span>
+        <span class="token keyword">return</span> v  <span class="token comment"># 返回零数组</span>
+    d <span class="token operator">=</span> <span class="token builtin">eval</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>  <span class="token comment"># 将 'udmap' 的值解析为一个字典</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 遍历 'key1' 到 'key9', 注意, 这里不包括10本身</span>
+        <span class="token keyword">if</span> <span class="token string">'key'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">in</span> d<span class="token punctuation">:</span>  <span class="token comment"># 如果当前键存在于字典中</span>
+            v<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> d<span class="token punctuation">[</span><span class="token string">'key'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token comment"># 将字典中的值存储在对应的索引位置上</span>
+            
+    <span class="token keyword">return</span> v  <span class="token comment"># 返回 One-Hot 编码后的数组</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 使用 apply() 方法将 udmap_onethot 函数应用于每个样本的 'udmap' 列</span>
+<span class="token comment"># np.vstack() 用于将结果堆叠成一个数组</span>
+train_udmap_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>vstack<span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span>udmap_onethot<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_udmap_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>vstack<span class="token punctuation">(</span>test_data<span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span>udmap_onethot<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 为新的特征 DataFrame 命名列名</span>
+train_udmap_df<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'key'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+test_udmap_df<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'key'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token comment"># 将编码后的 udmap 特征与原始数据进行拼接，沿着列方向拼接</span>
+train_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>train_data<span class="token punctuation">,</span> train_udmap_df<span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+test_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>test_data<span class="token punctuation">,</span> test_udmap_df<span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 4. 编码 udmap 是否为空</span>
+<span class="token comment"># 使用比较运算符将每个样本的 'udmap' 列与字符串 'unknown' 进行比较，返回一个布尔值的 Series</span>
+<span class="token comment"># 使用 astype(int) 将布尔值转换为整数（0 或 1），以便进行后续的数值计算和分析</span>
+train_data<span class="token punctuation">[</span><span class="token string">'udmap_isunknown'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'unknown'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'udmap_isunknown'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>test_data<span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'unknown'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 5. 提取 eid 的频次特征</span>
+<span class="token comment"># 使用 map() 方法将每个样本的 eid 映射到训练数据中 eid 的频次计数</span>
+<span class="token comment"># train_data['eid'].value_counts() 返回每个 eid 出现的频次计数</span>
+train_data<span class="token punctuation">[</span><span class="token string">'eid_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'eid_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 6. 提取 eid 的标签特征</span>
+<span class="token comment"># 使用 groupby() 方法按照 eid 进行分组，然后计算每个 eid 分组的目标值均值</span>
+<span class="token comment"># train_data.groupby('eid')['target'].mean() 返回每个 eid 分组的目标值均值</span>
+train_data<span class="token punctuation">[</span><span class="token string">'eid_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'eid'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'eid_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'eid'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 7. 提取时间戳</span>
+<span class="token comment"># 使用 pd.to_datetime() 函数将时间戳列转换为 datetime 类型</span>
+<span class="token comment"># 样例：1678932546000->2023-03-15 15:14:16</span>
+<span class="token comment"># 注: 需要注意时间戳的长度, 如果是13位则unit 为 毫秒, 如果是10位则为 秒, 这是转时间戳时容易踩的坑</span>
+<span class="token comment"># 具体实现代码：</span>
+train_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> unit<span class="token operator">=</span><span class="token string">'ms'</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>test_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> unit<span class="token operator">=</span><span class="token string">'ms'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 使用 dt.hour 属性从 datetime 列中提取小时信息，并将提取的小时信息存储在新的列 'common_ts_hour'</span>
+train_data<span class="token punctuation">[</span><span class="token string">'common_ts_hour'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>hour
+test_data<span class="token punctuation">[</span><span class="token string">'common_ts_hour'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>hour<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 8. 加载决策树模型进行训练(直接使用sklearn中导入的包进行模型建立)</span>
+clf <span class="token operator">=</span> DecisionTreeClassifier<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 使用 fit 方法训练模型</span>
+<span class="token comment"># train_data.drop(['udmap', 'common_ts', 'uuid', 'target'], axis=1) 从训练数据集中移除列 'udmap', 'common_ts', 'uuid', 'target'</span>
+<span class="token comment"># 这些列可能是特征或标签，取决于数据集的设置</span>
+<span class="token comment"># train_data['target'] 是训练数据集中的标签列，它包含了每个样本的目标值</span>
+clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>
+    train_data<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">,</span> <span class="token string">'common_ts'</span><span class="token punctuation">,</span> <span class="token string">'uuid'</span><span class="token punctuation">,</span> <span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 特征数据：移除指定的列作为特征</span>
+    train_data<span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span>  <span class="token comment"># 目标数据：将 'target' 列作为模型的目标进行训练</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier()</pre></div></div></div></div></div>
+
+
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 9. 对测试集进行预测，并保存结果到result_df中</span>
+<span class="token comment"># 创建一个DataFrame来存储预测结果，其中包括两列：'uuid' 和 'target'</span>
+<span class="token comment"># 'uuid' 列来自测试数据集中的 'uuid' 列，'target' 列将用来存储模型的预测结果</span>
+result_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token string">'uuid'</span><span class="token punctuation">:</span> test_data<span class="token punctuation">[</span><span class="token string">'uuid'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment"># 使用测试数据集中的 'uuid' 列作为 'uuid' 列的值</span>
+    <span class="token string">'target'</span><span class="token punctuation">:</span> clf<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>test_data<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">,</span> <span class="token string">'common_ts'</span><span class="token punctuation">,</span> <span class="token string">'uuid'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 使用模型 clf 对测试数据集进行预测，并将预测结果存储在 'target' 列中</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 10. 保存结果文件到本地</span>
+<span class="token comment"># 将结果DataFrame保存为一个CSV文件，文件名为 'submit.csv'</span>
+<span class="token comment"># 参数 index=None 表示不将DataFrame的索引写入文件中</span>
+result_df<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">'submit.csv'</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        Author: <a href="/about/">Siyuan</a><br>
+        URL: <a href="https://siyuan-zou.github.io/2023/08/24/%E7%94%A8%E6%88%B7%E6%96%B0%E5%A2%9E%E9%A2%84%E6%B5%8B%E6%8C%91%E6%88%98%E8%B5%9B/">https://siyuan-zou.github.io/2023/08/24/%E7%94%A8%E6%88%B7%E6%96%B0%E5%A2%9E%E9%A2%84%E6%B5%8B%E6%8C%91%E6%88%98%E8%B5%9B/</a><br>
+        
+            This work is licensed under a <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> .
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</section>
+
+    <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" href="/2022/04/30/%E4%BB%96%E7%A5%9D%E5%A4%A7%E5%AE%B6%E5%91%A8%E6%9C%AB%E6%84%89%E5%BF%AB/">他祝大家周末愉快</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/categories/%E9%9A%8F%E6%84%9F/">随感</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'Created: 2022-04-30 10:10<br>Updated: 2023-08-24 10:18'}">2022-04-30 -</span>
+        
+            <span>2022/04/30/他祝大家周末愉快/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <p>今天是五一节的第一天，前几天团购了火锅，从昨天晚上吃到今天晚上。我们三个姑娘肚子不够大，把所有的肉和家里的蘑菇蔬菜年糕土豆分了三顿吃，吃的很开心，有过节的感觉。是三个人一起准备，吃，然后收拾。一天没有学习，更有过节的感觉。</p>
+<p>晚上是姚老师与夫人许老师组织的法语电影放映活动。没有什么人，我进去的时候只有我一个观众，吓了我一跳。然后许老师介绍了几分钟动画片的人物，中间姚老师提出了什么异议，许老师大声说：不对。他们非常可爱。然后姚老师开始放电影。我试图打毕业论文的tex，却被电影吸引进去。欧洲文化很有意思，他们天然的有种族观念，而中国人是没有的。所以我们的文化是混沌的，不是界限分明的。</p>
+<p>中途跟妈妈讨论，我说：我觉得人只能做一些这种事情，看起来很小，没什么影响，但是只有爱可以拯救人类。如果非要打仗，那就一起毁灭算了。反正都是要死的。人类灭绝了地球上还会有新的生命。这很难，我看不到什么希望。但是我觉得拯救人类只有这一个办法。只有爱、共情、文学和艺术可以拯救人类。</p>
+<p>放完电影，姚老师评论说：这个电影把现代的事情搬到古代，其实是给大人看的，不是给小孩看的对吧。然后他说：虽然现在周末只有一天了，但是祝大家周末愉快。</p>
+<!-- 我向周木童子说：看完电影姚老师要评价两句，看起来都是给学生放映的，他祝大家周末愉快。 -->
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        Author: <a href="/about/">Siyuan</a><br>
+        URL: <a href="https://siyuan-zou.github.io/2022/04/30/%E4%BB%96%E7%A5%9D%E5%A4%A7%E5%AE%B6%E5%91%A8%E6%9C%AB%E6%84%89%E5%BF%AB/">https://siyuan-zou.github.io/2022/04/30/%E4%BB%96%E7%A5%9D%E5%A4%A7%E5%AE%B6%E5%91%A8%E6%9C%AB%E6%84%89%E5%BF%AB/</a><br>
+        
+            This work is licensed under a <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> .
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</section>
+
+    <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" href="/2022/04/17/%E4%B8%8A%E6%B5%B7/">2022年4月17日 上海</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/categories/%E9%9A%8F%E6%84%9F/">随感</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'Created: 2022-04-17 11:34<br>Updated: 2023-08-24 06:34'}">2022-04-17 -</span>
+        
+            <span>2022/04/17/上海/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <p>我掌握了活下去的办法：关闭感官，关闭大脑，如果我是培养基里的一片组织，因为养分有限，我只能杀死部分的自己让剩下的活下去。</p>
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        Author: <a href="/about/">Siyuan</a><br>
+        URL: <a href="https://siyuan-zou.github.io/2022/04/17/%E4%B8%8A%E6%B5%B7/">https://siyuan-zou.github.io/2022/04/17/%E4%B8%8A%E6%B5%B7/</a><br>
+        
+            This work is licensed under a <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> .
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</section>
+
+    <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" href="/2022/03/23/%E6%AF%95%E4%B8%9A/">毕业</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/categories/%E9%9A%8F%E6%84%9F/">随感</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'Created: 2022-03-23 10:23<br>Updated: 2023-08-24 06:34'}">2022-03-23 -</span>
+        
+            <span>2022/03/23/毕业/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <h6 id="申请优秀毕业生要求「总结过去，展望未来」，态度不端正不予申请，认真地想了想我都认识了什么人，收获了什么生活"><a href="#申请优秀毕业生要求「总结过去，展望未来」，态度不端正不予申请，认真地想了想我都认识了什么人，收获了什么生活" class="headerlink" title="申请优秀毕业生要求「总结过去，展望未来」，态度不端正不予申请，认真地想了想我都认识了什么人，收获了什么生活"></a>申请优秀毕业生要求「总结过去，展望未来」，态度不端正不予申请，认真地想了想我都认识了什么人，收获了什么生活</h6><p>在复旦大学的四年，第一年是在自然科学试验班度过的。我对于自己拥有一份转专业的经历感到很幸运：我在大一的寝室认识了我关系最好的两个朋友。我和她们寒假去欧洲旅行，分别去对方家里住，一起解决情感问题。即使三个人专业不一样，也总是克服艰险到文图一起自习。转入数学系之后，我又认识了晓雯，在北区两个人住的时候，我们总是长谈、哈哈大笑、讨论完泛函互相夸对方真聪明。在数学系的每个学期都能因为讨论题目认识一些同学，但是大多数同学在选课不一样的大三失去了联系，只有孙进莫名其妙地成为了我的朋友。拓扑2和解析几何使我们相遇，从此以后数学系内部的许多消息都是他告诉我的，一起打过实力相当的篮球，也一起艰难地试过华波波老师的科研，最后只有他坚持了下去，找到了自己想做的方向。很多年以后回想起大学生活，理想可能会忘，但是和朋友度过的时光却会历久弥新。</p>
+<p>为什么会转入数学系？说是喜欢数学，曾经也许有“数学系看起来很厉害”的因素，而我的数学不算差，稀里糊涂就转进来了。刚开始的分析课（一直到现在）令我痛苦，只有抽象代数不会。就像抓到光一样，硬着头皮学了下去。疫情的学期认识了姚一隽老师，姚老师对数学的态度我非常非常喜欢，我感到很荣幸成为他的学生。大三的时候迷茫，不知道该不该继续在数学上走下去，姚老师建议我去巴黎综合理工就读，为我开了一扇窗。而我去伯克利交换的时候，姚老师建议我联系了15级的周童学长，在他身上我感受到好的做数学的态度，在伯克利感受到好的数学，那段时光快乐非常，我的心要因我爱数学而高歌。</p>
+<p>现在在做的事情是用大脑捡起以前学了就忘的东西，建立我的对数学的认识，并且试图不将数学分成分析几何代数的大块挑一块画地为牢，而是探索，努力建立Global Picture。就像Andrew Wiles说的那样，学数学就好像走入一个没有开灯的房间，刚开始漆黑一片，只能用手摸索家具都摆在什么位置，摸清楚之后，慢慢地灯就亮了。我现在刚进门，准备找一找沙发在哪里。</p>
+<p>我在复旦的日子就是这样，朋友，爱，痛苦，数学；当然也不止这样，还可以说很多很多。作为我的大学，她已经给足了我丰富的四年；而我将要离开她，去做一个更自由的宇宙之游魂。</p>
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        Author: <a href="/about/">Siyuan</a><br>
+        URL: <a href="https://siyuan-zou.github.io/2022/03/23/%E6%AF%95%E4%B8%9A/">https://siyuan-zou.github.io/2022/03/23/%E6%AF%95%E4%B8%9A/</a><br>
+        
+            This work is licensed under a <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> .
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</section>
+
+</div>
+
+    </div>
+    <a href="#" class="mdui-fab mdui-fab-fixed mdui-hidden-xs mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">keyboard_arrow_up</i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
 
 <script>
-    hljs.initHighlightingOnLoad();
+    var $ = mdui.$;
+    function init(){
+        //
+    }
+    window.addEventListener("load", () => {
+        //
+        init()
+    }, {once: true});
 </script>
+
 </body>
 </html>
