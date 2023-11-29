@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+
+    <link rel="dns-prefetch" //cdn.jsdelivr.net>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css">
+
+
+
+    
+<link rel="stylesheet" href="/css/prism-m.css">
+
+    
+
+
+
+<meta name="theme-color" content="#3F51B5">
+
+
+<style>
+    html,body{scroll-behavior:smooth;min-height:100vh}
+    blockquote>strong>a{word-break:break-all}
+    .mdui-hoverable:hover,.mdui-hoverable:focus{-webkit-box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;}
+    .mdui-card-primary-title a{text-decoration:none !important}
+    .page-number{display:none !important}
+    .mdui-container-fluid{transition:opacity .4s}
+    
+        body{background-color: #f6f6f6}
+
+    
+</style>
+    
+    <title>用户新增预测挑战赛-特征工程 | Siyuan&#39;s website!</title>
+    <link rel="canonical" href="https://siyuan-zou.github.io/2023/11/29/%E7%94%A8%E6%88%B7%E6%96%B0%E5%A2%9E%E9%A2%84%E6%B5%8B%E6%8C%91%E6%88%98%E8%B5%9B-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">
+    <meta name="description" content="任务2.3：特征工程特征工程指的是把原始数据转变为模型训练数据的过程，目的是获取更好的训练数据特征。特征工程能使得模型的性能得到提升，有时甚至在简单的模型上也能取得不错的效果。 # 1. 导入需要用到的相关库 import pandas as pd import numpy as np import matplotlib as plt import seaborn as sns  # 导入模型 f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用户新增预测挑战赛-特征工程">
+<meta property="og:url" content="https://siyuan-zou.github.io/2023/11/29/%E7%94%A8%E6%88%B7%E6%96%B0%E5%A2%9E%E9%A2%84%E6%B5%8B%E6%8C%91%E6%88%98%E8%B5%9B-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Siyuan&#39;s website!">
+<meta property="og:description" content="任务2.3：特征工程特征工程指的是把原始数据转变为模型训练数据的过程，目的是获取更好的训练数据特征。特征工程能使得模型的性能得到提升，有时甚至在简单的模型上也能取得不错的效果。 # 1. 导入需要用到的相关库 import pandas as pd import numpy as np import matplotlib as plt import seaborn as sns  # 导入模型 f">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://siyuan-zou.github.io/images/mission2-3_files/mission2-3_3_1.png">
+<meta property="article:published_time" content="2023-11-29T21:19:49.000Z">
+<meta property="article:modified_time" content="2023-11-29T21:21:29.230Z">
+<meta property="article:author" content="Siyuan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://siyuan-zou.github.io/images/mission2-3_files/mission2-3_3_1.png">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
+    <div class="mdui-theme-layout-light">
+    <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
+    <div class="mdui-toolbar">
+        <button mdui-drawer="{target: '.mdui-drawer'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></button>
+        <a href="/" class="mdui-typo-title">Siyuan&#39;s website!</a>
+        <div class="mdui-toolbar-spacer"></div>
+        
+        <a href="/search/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">search</i></a>
+        
+    </div>
+</header>
+    <aside class="mdui-drawer mdui-drawer-close">
+    <nav class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="#" class="mdui-list-item mdui-ripple h-card">
+            <div class="mdui-list-item-avatar">
+                
+                <i class="mdui-color-theme-primary mdui-icon material-icons">person</i>
+                
+            </div>
+            <div class="mdui-list-item-content p-name">Siyuan</div>
+            <span style="display:none" class="u-url u-uid">https://siyuan-zou.github.io</span>
+        </a>
+        <div class="mdui-divider"></div>
+        
+        <a href="/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content">Home</div>
+        </a>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">inbox</i>
+                <div class="mdui-list-item-content">Archives</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/archives/2023/11/">November 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/archives/2023/08/">August 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/archives/2022/04/">April 2022</a><a class="mdui-list-item mdui-ripple m-link" href="/archives/2022/03/">March 2022</a>
+            </div>
+        </div>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
+                <div class="mdui-list-item-content">Categories</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="mdui-list-item mdui-ripple m-link" href="/categories/%E9%9A%8F%E6%84%9F/">随感</a>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="mdui-divider"></div>
+    <footer class="mdui-m-l-2 mdui-m-t-1 mdui-typo mdui-text-color-theme-disabled">
+        <p class="mdui-m-b-0">
+            
+            ©
+            2023 Siyuan<br>
+            
+            Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a><br>
+            
+            Theme - <a href="https://github.com/kwaa/hexo-theme-m" rel="noreferrer" target="_blank"
+                mdui-tooltip="{position:'right', content: 'by 藍+85CD'}">M</a></p>
+            
+    </footer>
+</aside>
+    </div>
+    <div class="mdui-container-fluid mdui-center" style="max-width:720px">
+        <article class="h-entry mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px"
+>
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="u-url p-name mdui-text-color-theme-text" >用户新增预测挑战赛-特征工程</a>
+        <a class="p-author h-card" style="display:none" href="https://siyuan-zou.github.io">Siyuan</a>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <time class="dt-published" mdui-tooltip="{content:'Created: 2023-11-29 10:19<br>Updated: 2023-11-29 10:21'}" datetime="2023-11-29T21:19:49.000Z">2023-11-29</time>
+        <span>-</span>
+        
+            <span>2023/11/29/用户新增预测挑战赛-特征工程/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <div class="p-summary" style="display:none"></div>
+        <main class="e-content"><h1 id="任务2-3：特征工程"><a href="#任务2-3：特征工程" class="headerlink" title="任务2.3：特征工程"></a>任务2.3：特征工程</h1><p>特征工程指的是把原始数据转变为模型训练数据的过程，目的是获取更好的训练数据特征。特征工程能使得模型的性能得到提升，有时甚至在简单的模型上也能取得不错的效果。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 1. 导入需要用到的相关库</span>
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> seaborn <span class="token keyword">as</span> sns
+
+<span class="token comment"># 导入模型</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> SGDClassifier
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>tree <span class="token keyword">import</span> DecisionTreeClassifier
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>naive_bayes <span class="token keyword">import</span> MultinomialNB
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>ensemble <span class="token keyword">import</span> RandomForestClassifier
+
+<span class="token comment"># 导入交叉验证和评价指标</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> cross_val_predict
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> classification_report
+
+<span class="token comment"># 2. 读取训练集和测试集文件</span>
+train_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'用户新增预测挑战赛公开数据/train.csv'</span><span class="token punctuation">)</span>
+test_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'用户新增预测挑战赛公开数据/test.csv'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 提取udmap特征，人工进行onehot</span>
+<span class="token keyword">def</span> <span class="token function">udmap_onethot</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    v <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> d <span class="token operator">==</span> <span class="token string">'unknown'</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> v
+    d <span class="token operator">=</span> <span class="token builtin">eval</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token string">'key'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">in</span> d<span class="token punctuation">:</span>
+            v<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> d<span class="token punctuation">[</span><span class="token string">'key'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">]</span>
+            
+    <span class="token keyword">return</span> v
+train_udmap_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>vstack<span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span>udmap_onethot<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_udmap_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>vstack<span class="token punctuation">(</span>test_data<span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span>udmap_onethot<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+train_udmap_df<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'key'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+test_udmap_df<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'key'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 编码udmap是否为空</span>
+train_data<span class="token punctuation">[</span><span class="token string">'udmap_isunknown'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'unknown'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'udmap_isunknown'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>test_data<span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'unknown'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+
+<span class="token comment"># udmap特征和原始数据拼接</span>
+train_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>train_data<span class="token punctuation">,</span> train_udmap_df<span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+test_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>test_data<span class="token punctuation">,</span> test_udmap_df<span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 提取eid的频次特征</span>
+train_data<span class="token punctuation">[</span><span class="token string">'eid_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'eid_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 提取eid的标签特征</span>
+train_data<span class="token punctuation">[</span><span class="token string">'eid_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'eid'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'eid_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'eid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'eid'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 提取时间戳</span>
+train_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> unit<span class="token operator">=</span><span class="token string">'ms'</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>test_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> unit<span class="token operator">=</span><span class="token string">'ms'</span><span class="token punctuation">)</span>
+train_data<span class="token punctuation">[</span><span class="token string">'common_ts_hour'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>hour
+test_data<span class="token punctuation">[</span><span class="token string">'common_ts_hour'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>hour<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 3. 进行特征工程</span>
+train_data<span class="token punctuation">[</span><span class="token string">'common_ts_day'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>day
+test_data<span class="token punctuation">[</span><span class="token string">'common_ts_day'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'common_ts'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>day
+
+train_data<span class="token punctuation">[</span><span class="token string">'x1_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x1'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x1'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x1_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x1'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x1'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+train_data<span class="token punctuation">[</span><span class="token string">'x1_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x1'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x1'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x1_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x1'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x1'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+train_data<span class="token punctuation">[</span><span class="token string">'x2_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x2'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x2'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x2_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x2'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x2'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+train_data<span class="token punctuation">[</span><span class="token string">'x2_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x2'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x2'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x2_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x2'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x2'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+train_data<span class="token punctuation">[</span><span class="token string">'x3_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x3'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x3'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x3_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x3'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x3'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+train_data<span class="token punctuation">[</span><span class="token string">'x4_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x4'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x4'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x4_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x4'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x4'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+train_data<span class="token punctuation">[</span><span class="token string">'x6_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x6'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x6'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x6_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x6'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x6'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+train_data<span class="token punctuation">[</span><span class="token string">'x6_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x6'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x6'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x6_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x6'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x6'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+train_data<span class="token punctuation">[</span><span class="token string">'x7_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x7'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x7'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x7_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x7'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x7'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+train_data<span class="token punctuation">[</span><span class="token string">'x7_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x7'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x7'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x7_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x7'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x7'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+train_data<span class="token punctuation">[</span><span class="token string">'x8_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x8'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x8'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x8_freq'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x8'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">[</span><span class="token string">'x8'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+train_data<span class="token punctuation">[</span><span class="token string">'x8_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'x8'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x8'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+test_data<span class="token punctuation">[</span><span class="token string">'x8_mean'</span><span class="token punctuation">]</span> <span class="token operator">=</span> test_data<span class="token punctuation">[</span><span class="token string">'x8'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>train_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token string">'x8'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 准备特征矩阵 X 和目标向量 y</span>
+X <span class="token operator">=</span> train_data<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'udmap'</span><span class="token punctuation">,</span> <span class="token string">'common_ts'</span><span class="token punctuation">,</span> <span class="token string">'uuid'</span><span class="token punctuation">,</span> <span class="token string">'target'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> train_data<span class="token punctuation">[</span><span class="token string">'target'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 训练决策树模型</span>
+dt_model <span class="token operator">=</span> DecisionTreeClassifier<span class="token punctuation">(</span><span class="token punctuation">)</span>
+dt_model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+
+<span class="token comment"># 获取特征重要性</span>
+feature_importance <span class="token operator">=</span> dt_model<span class="token punctuation">.</span>feature_importances_
+
+<span class="token comment"># 创建一个包含特征名称和其重要性值的DataFrame</span>
+importance_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">'Feature'</span><span class="token punctuation">:</span> X<span class="token punctuation">.</span>columns<span class="token punctuation">,</span> <span class="token string">'Importance'</span><span class="token punctuation">:</span> feature_importance<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 按照重要性值降序排序</span>
+importance_df <span class="token operator">=</span> importance_df<span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'Importance'</span><span class="token punctuation">,</span> ascending<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 可视化特征重要性</span>
+sns<span class="token punctuation">.</span>barplot<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">'Importance'</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token string">'Feature'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>importance_df<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="mdui-img-fluid"><img src="/images/mission2-3_files/mission2-3_3_1.png" alt="png"class="mdui-img-rounded" loading="lazy"></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 训练并验证DecisionTreeClassifier</span>
+pred <span class="token operator">=</span> cross_val_predict<span class="token punctuation">(</span>dt_model<span class="token punctuation">,</span> X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>classification_report<span class="token punctuation">(</span>y<span class="token punctuation">,</span> pred<span class="token punctuation">,</span> digits<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre><code>              precision    recall  f1-score   support
+
+           0      0.955     0.951     0.953    533155
+           1      0.707     0.726     0.717     87201
+
+    accuracy                          0.919    620356
+   macro avg      0.831     0.839     0.835    620356
+weighted avg      0.920     0.919     0.920    620356
+</code></pre>
+<h3 id="加入特征之后模型的精度有什么变化？"><a href="#加入特征之后模型的精度有什么变化？" class="headerlink" title="- 加入特征之后模型的精度有什么变化？"></a>- 加入特征之后模型的精度有什么变化？</h3><p>交叉验证f1-score从0.771提升到0.835。</p>
+<h3 id="思考并加入3个额外的特征，并观测模型精度的变化"><a href="#思考并加入3个额外的特征，并观测模型精度的变化" class="headerlink" title="- 思考并加入3个额外的特征，并观测模型精度的变化"></a>- 思考并加入3个额外的特征，并观测模型精度的变化</h3></main>
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        Author: <a href="#">Siyuan</a><br>
+        URL: <a href="https://siyuan-zou.github.io/2023/11/29/%E7%94%A8%E6%88%B7%E6%96%B0%E5%A2%9E%E9%A2%84%E6%B5%8B%E6%8C%91%E6%88%98%E8%B5%9B-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">https://siyuan-zou.github.io/2023/11/29/%E7%94%A8%E6%88%B7%E6%96%B0%E5%A2%9E%E9%A2%84%E6%B5%8B%E6%8C%91%E6%88%98%E8%B5%9B-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/</a><br>
+        
+            This work is licensed under a <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> .
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</article>
+
+<nav class="mdui-theme-layout-light mdui-color-transparent mdui-row mdui-m-b-2">
+    
+        <div class="mdui-col-xs-12 mdui-m-b-2">
+            <span disabled class="extend prev mdui-btn mdui-ripple mdui-float-left" rel="prev">
+                <i class="mdui-icon mdui-icon-left material-icons">arrow_back</i>
+            </span>
+        </div>
+    
+        <div class="mdui-col-xs-12">
+            <a class="extend next mdui-btn mdui-ripple mdui-float-right mdui-text-truncate" rel="next"
+                style="max-width: 100%" href="/2023/11/29/%E7%94%A8%E6%88%B7%E6%96%B0%E5%A2%9E%E9%A2%84%E6%B5%8B%E6%8C%91%E6%88%98%E8%B5%9B-%E6%A8%A1%E5%9E%8B%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">
+                <i class="mdui-icon mdui-icon-right material-icons">arrow_forward</i>用户新增预测挑战赛-模型交叉验证
+            </a>
+        </div>
+    
+</nav>
+
+    </div>
+    <a href="#" class="mdui-fab mdui-fab-fixed mdui-hidden-xs mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">keyboard_arrow_up</i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
+
+<script>
+    var $ = mdui.$;
+    function init(){
+        //
+    }
+    window.addEventListener("load", () => {
+        //
+        init()
+    }, {once: true});
+</script>
+
+</body>
+</html>
